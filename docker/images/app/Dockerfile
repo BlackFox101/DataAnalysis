@@ -2,6 +2,8 @@ FROM php:8.0-fpm
 
 WORKDIR /usr/local/www/data/analysis/
 
+ADD ./php.ini /usr/local/etc/php/conf.d/php.ini
+
 RUN apt-get -qq update \
     && usermod -u 1000 www-data \
     && apt-get -qq install --yes --no-install-recommends sudo curl openssh-client rsync \
@@ -25,4 +27,5 @@ RUN apt-get -qq update \
     && docker-php-ext-install -j${NPROC} ldap \
     && docker-php-ext-install -j${NPROC} pdo_mysql \
     && pecl install xdebug-3.1.0 \
-    && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer --version=2.0.14
+    && docker-php-ext-enable xdebug \
+    && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer --version=2.0.14 \

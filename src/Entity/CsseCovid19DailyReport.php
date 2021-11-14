@@ -164,14 +164,14 @@ class CsseCovid19DailyReport
         return $this;
     }
 
-    public function getLong�АField(): ?float
+    public function getLongField(): ?float
     {
-        return $this->long�АField;
+        return $this->longField;
     }
 
-    public function setLong�АField(?float $long�АField): self
+    public function setLongField(?float $longField): self
     {
-        $this->long�АField = $long�АField;
+        $this->longField = $longField;
 
         return $this;
     }
