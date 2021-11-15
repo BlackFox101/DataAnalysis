@@ -96,7 +96,6 @@ class GetCovid19UsDataCommand extends Command
         return $counter;
     }
 
-//             $entity->setLastUpdated(isset($record['Last_Update']) ? new \DateTime($record['Last_Update']) : null);
     private function saveData(array $data)
     {
         foreach ($data as $record)
